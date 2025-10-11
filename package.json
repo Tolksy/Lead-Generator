@@ -1,0 +1,19 @@
+{
+  "name": "graphic-design-software",
+  "version": "1.0.0",
+  "description": "AI-powered graphic design software for business cards, flyers, and door hangers",
+  "main": "server/index.js",
+  "scripts": {
+    "server": "cd server && node index.js",
+    "client": "cd client && npm start",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": ["graphic-design", "ai-design", "vistaprint"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
+
