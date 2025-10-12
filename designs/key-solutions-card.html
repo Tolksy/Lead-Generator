@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key Solutions Business Card</title>
     <style>
+        :root {
+            --apple-graphite: #0c0c0d;
+            --apple-space: #111214;
+            --silver: #d9d9db;
+            --silver-dim: #b7b7b9;
+            --accent-red: #c12b33; /* pulled toward the logo red */
+        }
         body { 
             margin: 0; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
-            background: #1a1a1a; 
+            background: var(--apple-graphite); 
             flex-direction: column; 
             gap: 30px; 
             padding: 40px;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: var(--silver);
         }
         .card-container {
             display: flex;
@@ -26,34 +35,34 @@
             text-align: center;
         }
         .card-label {
-            color: #D1D1D1;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
+            color: var(--silver-dim);
+            font-size: 12px;
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
         canvas { 
-            border: 1px solid #444; 
-            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-            border-radius: 8px;
+            border: 1px solid #2a2a2c; 
+            box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+            border-radius: 10px;
+            background: #0b0b0c;
         }
         button { 
-            padding: 15px 40px; 
-            background: #AE9A64; 
-            color: #282828; 
+            padding: 14px 32px; 
+            background: #e6e6ea; 
+            color: #111214; 
             border: none; 
-            border-radius: 8px; 
-            font-size: 16px; 
+            border-radius: 10px; 
+            font-size: 15px; 
             cursor: pointer; 
-            font-weight: bold;
-            letter-spacing: 1px;
-            transition: all 0.3s;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            transition: all 0.25s ease;
         }
         button:hover { 
-            background: #C4AD78;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(174, 154, 100, 0.4);
+            background: #f2f2f5;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 26px rgba(0,0,0,0.3);
         }
     </style>
 </head>
@@ -71,27 +80,80 @@
     <button onclick="exportCards()">📥 Download Both Sides (PNG)</button>
     
     <script>
+        // Shared palette and font stack for an Apple-like aesthetic
+        const fontFamily = '"Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans", Helvetica, Arial, sans-serif';
+        const palette = {
+            background: '#0c0c0d',
+            graphite: '#111214',
+            silver: '#d9d9db',
+            silverDim: '#b7b7b9',
+            white: '#f2f2f3',
+            red: '#c12b33'
+        };
+
+        function drawLogo(ctx, centerX, centerY, width, strokeColor) {
+            const height = Math.floor(width * 0.45);
+            const leftX = centerX - width / 2;
+            const rightX = centerX + width / 2;
+            ctx.save();
+            ctx.strokeStyle = strokeColor;
+            ctx.lineWidth = 10;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            // Left peak
+            ctx.beginPath();
+            ctx.moveTo(leftX, centerY + height * 0.25);
+            ctx.lineTo(centerX - width * 0.1, centerY - height * 0.60);
+            ctx.lineTo(centerX, centerY - height * 0.25);
+            ctx.stroke();
+
+            // Right peak
+            ctx.beginPath();
+            ctx.moveTo(centerX - width * 0.05, centerY - height * 0.15);
+            ctx.lineTo(centerX + width * 0.15, centerY - height * 0.70);
+            ctx.lineTo(rightX, centerY + height * 0.15);
+            ctx.stroke();
+
+            // Middle supporting stroke
+            ctx.beginPath();
+            ctx.moveTo(centerX - width * 0.25, centerY + height * 0.50);
+            ctx.lineTo(centerX + width * 0.05, centerY - height * 0.30);
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
         // SIDE 1: THE BRAND
         const front = document.getElementById('front');
         const ctxFront = front.getContext('2d');
         
         // Background
-        ctxFront.fillStyle = '#282828';
+        ctxFront.fillStyle = palette.background;
         ctxFront.fillRect(0, 0, 1050, 600);
-        
-        // Logo (centered) - Using "KEY SOLUTIONS" as logo text
-        ctxFront.fillStyle = '#AE9A64'; // Pale Gold
-        ctxFront.font = 'bold 64px Arial';
+
+        // Stylized logo inspired by the provided mark
+        drawLogo(ctxFront, 525, 220, 240, palette.red);
+
+        // Sterling silver text (subtle vertical gradient)
+        const silverGradFront = ctxFront.createLinearGradient(0, 260, 0, 380);
+        silverGradFront.addColorStop(0, '#f5f5f6');
+        silverGradFront.addColorStop(0.5, palette.silver);
+        silverGradFront.addColorStop(1, '#ededee');
+        ctxFront.fillStyle = silverGradFront;
         ctxFront.textAlign = 'center';
-        ctxFront.fillText('KEY SOLUTIONS', 525, 320);
-        
+        ctxFront.font = '600 58px ' + fontFamily;
+        ctxFront.fillText('KEY SOLUTIONS', 525, 360);
+        ctxFront.font = '400 20px ' + fontFamily;
+        ctxFront.fillStyle = palette.silverDim;
+        ctxFront.fillText('CONSTRUCTION COMPANY', 525, 395);
         
         // SIDE 2: THE INFORMATION
         const back = document.getElementById('back');
         const ctxBack = back.getContext('2d');
         
         // Background
-        ctxBack.fillStyle = '#282828';
+        ctxBack.fillStyle = palette.background;
         ctxBack.fillRect(0, 0, 1050, 600);
         
         // All content left-aligned, grouped together
@@ -100,28 +162,28 @@
         const lineHeight = 48;
         
         // Name
-        ctxBack.fillStyle = '#D1D1D1'; // Off-Silver
-        ctxBack.font = 'bold 42px Arial';
+        ctxBack.fillStyle = palette.silver; // Sterling silver
+        ctxBack.font = '600 42px ' + fontFamily;
         ctxBack.textAlign = 'left';
         ctxBack.fillText('Clayton Key', leftMargin, startY);
         
         // Title/Role
-        ctxBack.font = '22px Arial';
-        ctxBack.fillStyle = '#D1D1D1';
+        ctxBack.font = '400 22px ' + fontFamily;
+        ctxBack.fillStyle = palette.silverDim;
         ctxBack.fillText('Owner, Contracting & Renovations', leftMargin, startY + 40);
         
-        // Separator line (Pale Gold accent)
-        ctxBack.strokeStyle = '#AE9A64';
-        ctxBack.lineWidth = 2;
+        // Separator line (sterling silver accent)
+        ctxBack.strokeStyle = '#bdbec3';
+        ctxBack.lineWidth = 1.5;
         ctxBack.beginPath();
         ctxBack.moveTo(leftMargin, startY + 80);
-        ctxBack.lineTo(leftMargin + 350, startY + 80);
+        ctxBack.lineTo(leftMargin + 380, startY + 80);
         ctxBack.stroke();
         
         // Contact info - clean spacing
         const contactStartY = startY + 130;
-        ctxBack.font = '24px Arial';
-        ctxBack.fillStyle = '#D1D1D1';
+        ctxBack.font = '400 24px ' + fontFamily;
+        ctxBack.fillStyle = palette.silver;
         
         ctxBack.fillText('250-710-6851', leftMargin, contactStartY);
         ctxBack.fillText('clayton@keysolutionscontracting.ca', leftMargin, contactStartY + lineHeight);
