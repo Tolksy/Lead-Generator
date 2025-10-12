@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Business Card</title>
+    <style>
+        body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #f0f0f0; flex-direction: column; gap: 20px; }
+        canvas { border: 2px solid #ccc; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        button { padding: 15px 30px; background: #FF6B35; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #E55A2B; }
+    </style>
+</head>
+<body>
+    <canvas id="card" width="1050" height="600"></canvas>
+    <button onclick="exportCard()">📥 Download PNG</button>
+    
+    <script>
+        const canvas = document.getElementById('card');
+        const ctx = canvas.getContext('2d');
+        
+        // Background - Dark gray
+        ctx.fillStyle = '#2C3E50';
+        ctx.fillRect(0, 0, 1050, 600);
+        
+        // Orange accent bar
+        ctx.fillStyle = '#FF6B35';
+        ctx.fillRect(0, 0, 1050, 120);
+        
+        // Company name
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 54px Arial';
+        ctx.fillText('APEX CONSTRUCTION', 40, 80);
+        
+        // Tagline
+        ctx.font = '22px Arial';
+        ctx.fillStyle = '#ECF0F1';
+        ctx.fillText('Building Your Dreams', 40, 180);
+        
+        // Name
+        ctx.font = 'bold 36px Arial';
+        ctx.fillStyle = 'white';
+        ctx.fillText('Mike Johnson', 40, 280);
+        
+        // Title
+        ctx.font = '24px Arial';
+        ctx.fillStyle = '#FF6B35';
+        ctx.fillText('General Contractor', 40, 320);
+        
+        // Contact info
+        ctx.font = '20px Arial';
+        ctx.fillStyle = '#ECF0F1';
+        ctx.fillText('📞 (555) 789-0123', 40, 420);
+        ctx.fillText('✉ mike@apexconstruction.com', 40, 460);
+        ctx.fillText('🌐 www.apexconstruction.com', 40, 500);
+        
+        // License number
+        ctx.font = 'italic 16px Arial';
+        ctx.fillStyle = '#95A5A6';
+        ctx.fillText('License #12345678', 40, 560);
+        
+        // Decorative element - hard hat icon representation
+        ctx.fillStyle = '#FF6B35';
+        ctx.beginPath();
+        ctx.arc(900, 400, 120, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.beginPath();
+        ctx.arc(950, 350, 80, 0, Math.PI * 2);
+        ctx.fill();
+        
+        function exportCard() {
+            canvas.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'contractor-business-card.png';
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+        }
+    </script>
+</body>
+</html>
+
