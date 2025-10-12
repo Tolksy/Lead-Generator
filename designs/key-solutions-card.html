@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Solutions Business Card</title>
+    <style>
+        body { 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            background: #1a1a1a; 
+            flex-direction: column; 
+            gap: 30px; 
+            padding: 40px;
+        }
+        .card-container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card-wrapper {
+            text-align: center;
+        }
+        .card-label {
+            color: #D1D1D1;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        canvas { 
+            border: 1px solid #444; 
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+            border-radius: 8px;
+        }
+        button { 
+            padding: 15px 40px; 
+            background: #AE9A64; 
+            color: #282828; 
+            border: none; 
+            border-radius: 8px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        button:hover { 
+            background: #C4AD78;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(174, 154, 100, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card-wrapper">
+            <div class="card-label">Side 1 - Front</div>
+            <canvas id="front" width="1050" height="600"></canvas>
+        </div>
+        <div class="card-wrapper">
+            <div class="card-label">Side 2 - Back</div>
+            <canvas id="back" width="1050" height="600"></canvas>
+        </div>
+    </div>
+    <button onclick="exportCards()">📥 Download Both Sides (PNG)</button>
+    
+    <script>
+        // SIDE 1: THE BRAND
+        const front = document.getElementById('front');
+        const ctxFront = front.getContext('2d');
+        
+        // Background
+        ctxFront.fillStyle = '#282828';
+        ctxFront.fillRect(0, 0, 1050, 600);
+        
+        // Logo (centered) - Using "KEY SOLUTIONS" as logo text
+        ctxFront.fillStyle = '#AE9A64'; // Pale Gold
+        ctxFront.font = 'bold 64px Arial';
+        ctxFront.textAlign = 'center';
+        ctxFront.fillText('KEY SOLUTIONS', 525, 320);
+        
+        
+        // SIDE 2: THE INFORMATION
+        const back = document.getElementById('back');
+        const ctxBack = back.getContext('2d');
+        
+        // Background
+        ctxBack.fillStyle = '#282828';
+        ctxBack.fillRect(0, 0, 1050, 600);
+        
+        // All content left-aligned, grouped together
+        const leftMargin = 100;
+        const startY = 180;
+        const lineHeight = 48;
+        
+        // Name
+        ctxBack.fillStyle = '#D1D1D1'; // Off-Silver
+        ctxBack.font = 'bold 42px Arial';
+        ctxBack.textAlign = 'left';
+        ctxBack.fillText('Clayton Key', leftMargin, startY);
+        
+        // Title/Role
+        ctxBack.font = '22px Arial';
+        ctxBack.fillStyle = '#D1D1D1';
+        ctxBack.fillText('Owner, Contracting & Renovations', leftMargin, startY + 40);
+        
+        // Separator line (Pale Gold accent)
+        ctxBack.strokeStyle = '#AE9A64';
+        ctxBack.lineWidth = 2;
+        ctxBack.beginPath();
+        ctxBack.moveTo(leftMargin, startY + 80);
+        ctxBack.lineTo(leftMargin + 350, startY + 80);
+        ctxBack.stroke();
+        
+        // Contact info - clean spacing
+        const contactStartY = startY + 130;
+        ctxBack.font = '24px Arial';
+        ctxBack.fillStyle = '#D1D1D1';
+        
+        ctxBack.fillText('250-710-6851', leftMargin, contactStartY);
+        ctxBack.fillText('clayton@keysolutionscontracting.ca', leftMargin, contactStartY + lineHeight);
+        ctxBack.fillText('keysolutionscontracting.ca', leftMargin, contactStartY + (lineHeight * 2));
+        
+        
+        // Export function - downloads both sides
+        function exportCards() {
+            // Export front
+            front.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'key-solutions-FRONT.png';
+                a.click();
+                URL.revokeObjectURL(url);
+                
+                // Export back after short delay
+                setTimeout(() => {
+                    back.toBlob(blob => {
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'key-solutions-BACK.png';
+                        a.click();
+                        URL.revokeObjectURL(url);
+                    });
+                }, 500);
+            });
+        }
+    </script>
+</body>
+</html>
+
