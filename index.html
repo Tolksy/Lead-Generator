@@ -1,68 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Library</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; min-height: 100vh; }
-        h1 { color: white; margin-bottom: 30px; font-size: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-        .designs { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
-        .design-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.15); transition: transform 0.3s; }
-        .design-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
-        .design-preview { width: 100%; height: 200px; background: #f5f5f5; position: relative; overflow: hidden; }
-        .design-preview iframe { width: 350%; height: 350%; transform: scale(0.286); transform-origin: 0 0; border: none; pointer-events: none; }
-        .design-info { padding: 20px; }
-        .design-name { font-size: 1.2rem; font-weight: bold; color: #333; margin-bottom: 10px; }
-        .design-link { display: inline-block; padding: 10px 20px; background: #667eea; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; transition: background 0.3s; }
-        .design-link:hover { background: #5568d3; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Local car leads website connecting Nanaimo, BC drivers with vetted dealerships, brokers, and private sellers.">
+  <title>Nanaimo Car Leads | Fast Local Matches</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>🎨 My Design Library</h1>
-    <div class="designs">
-        
-        <div class="design-card">
-            <div class="design-preview">
-                <iframe src="designs/business-card-example.html"></iframe>
-            </div>
-            <div class="design-info">
-                <div class="design-name">Business Card Template</div>
-                <a href="designs/business-card-example.html" target="_blank" class="design-link">Open & Export</a>
-            </div>
+  <header class="hero" id="top">
+    <nav class="nav">
+      <div class="logo">Harbour City Car Leads</div>
+      <button class="nav-cta" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'});">Get Matches</button>
+    </nav>
+    <div class="hero__content">
+      <p class="eyebrow">Nanaimo · Ladysmith · Parksville</p>
+      <h1>Drive the Island sooner with pre-qualified car leads.</h1>
+      <p class="hero__text">
+        We connect serious Vancouver Island shoppers with vetted dealers, brokers, and private sellers across Nanaimo, BC. Tell us what you need and receive curated matches in under 60 minutes.
+      </p>
+      <div class="hero__actions">
+        <button class="primary" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'});">Start a Request</button>
+        <a class="secondary" href="#local">Why Nanaimo trusts us →</a>
+      </div>
+      <dl class="hero__metrics">
+        <div>
+          <dt>2,180+</dt>
+          <dd>Island drivers matched in 2024</dd>
         </div>
-        
-        <div class="design-card">
-            <div class="design-preview">
-                <iframe src="designs/contractor-card.html"></iframe>
-            </div>
-            <div class="design-info">
-                <div class="design-name">Contractor Business Card</div>
-                <a href="designs/contractor-card.html" target="_blank" class="design-link">Open & Export</a>
-            </div>
+        <div>
+          <dt>42</dt>
+          <dd>Partner lots across Mid-Island</dd>
         </div>
-        
-        <div class="design-card">
-            <div class="design-preview">
-                <iframe src="designs/key-solutions-card.html"></iframe>
-            </div>
-            <div class="design-info">
-                <div class="design-name">Key Solutions - Premium Card</div>
-                <a href="designs/key-solutions-card.html" target="_blank" class="design-link">Open & Export</a>
-            </div>
+        <div>
+          <dt>58 min</dt>
+          <dd>Average match time</dd>
         </div>
-        
-        <div class="design-card">
-            <div class="design-preview">
-                <iframe src="designs/dave-key-fisheries.html"></iframe>
-            </div>
-            <div class="design-info">
-                <div class="design-name">Dave Key - Fisheries Card</div>
-                <a href="designs/dave-key-fisheries.html" target="_blank" class="design-link">Open & Export</a>
-            </div>
-        </div>
-        
+      </dl>
     </div>
+  </header>
+
+  <main>
+    <section class="form-panel" id="apply">
+      <div class="form-panel__intro">
+        <p class="eyebrow">Fast intake</p>
+        <h2>Tell us what you drive, where you live, and your budget.</h2>
+        <p>We only share your request with verified Nanaimo-area sellers that fit your price point, credit situation, and preferred timeline.</p>
+        <ul>
+          <li>Works for new, used, EV, and commercial vehicles</li>
+          <li>No spam — you pick who contacts you back</li>
+          <li>Backed by locals in Departure Bay and South Nanaimo</li>
+        </ul>
+      </div>
+      <form class="lead-form" autocomplete="on">
+        <div class="grid">
+          <label>
+            Full Name
+            <input type="text" name="name" placeholder="Jamie Fraser" required>
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
+          <label>
+            Mobile Phone
+            <input type="tel" name="phone" placeholder="(250) 555-0199" required>
+          </label>
+          <label>
+            Preferred Contact Method
+            <select name="contact" required>
+              <option value="">Choose one</option>
+              <option value="call">Phone Call</option>
+              <option value="text">Text Message</option>
+              <option value="email">Email</option>
+            </select>
+          </label>
+          <label>
+            Budget Range (CAD)
+            <select name="budget" required>
+              <option value="">Select range</option>
+              <option value="under-20">Under $20K</option>
+              <option value="20-35">$20K - $35K</option>
+              <option value="35-55">$35K - $55K</option>
+              <option value="55-plus">$55K +</option>
+            </select>
+          </label>
+          <label>
+            Credit Profile
+            <select name="credit" required>
+              <option value="">Select one</option>
+              <option value="prime">Excellent (720+)</option>
+              <option value="mid">Average (640-719)</option>
+              <option value="rebuilding">Rebuilding (560-639)</option>
+              <option value="new">New credit / newcomer</option>
+            </select>
+          </label>
+        </div>
+        <label>
+          Vehicle Goals
+          <textarea name="details" rows="4" placeholder="Example: Need an AWD SUV for commuting between Chase River and Parksville, prefer 2021+ with warranty." required></textarea>
+        </label>
+        <label>
+          Postal Code (for delivery + insurance estimates)
+          <input type="text" name="postal" maxlength="7" placeholder="V9R 5H5" pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$" required>
+        </label>
+        <div class="agreement">
+          <input type="checkbox" id="consent" required>
+          <label for="consent">I agree to be contacted by Harbour City Car Leads partners and understand I can unsubscribe anytime.</label>
+        </div>
+        <button type="submit" class="primary">Get Local Matches</button>
+        <p class="form-footnote">Secure intake · Data stored in Canada · No credit check until you authorize it.</p>
+        <div class="form-status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="value-props" id="benefits">
+      <div>
+        <h3>Why Nanaimo drivers start here</h3>
+      </div>
+      <div class="value-grid">
+        <article>
+          <h4>Local-first matchmaking</h4>
+          <p>We prioritize sellers within 45 minutes of downtown Nanaimo, so viewings and delivery are easy even if you commute to Duke Point or Northfield.</p>
+        </article>
+        <article>
+          <h4>Transparent incentives</h4>
+          <p>Partners disclose doc fees, freight, and lender incentives upfront. You always see out-the-door numbers before you sign.</p>
+        </article>
+        <article>
+          <h4>Credit-safe process</h4>
+          <p>Your profile is shared anonymously until you pick a match. That means fewer hard checks and better leverage when negotiating.</p>
+        </article>
+        <article>
+          <h4>Island-wide inventory</h4>
+          <p>We source across Nanaimo, Ladysmith, Parksville, Qualicum, and Courtenay to secure the exact trim, color, or upfit you need.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="inventory" id="inventory">
+      <header>
+        <p class="eyebrow">Fresh leads daily</p>
+        <h2>Sample inventory that moves fast</h2>
+        <p>These vehicles were requested by real Island drivers this month. Submit your criteria and we’ll shortlist similar options.</p>
+      </header>
+      <div class="inventory-cards">
+        <article>
+          <span class="tag">Family SUVs</span>
+          <h4>2022 Toyota Highlander XLE AWD</h4>
+          <p>Third-row commuting between Nanaimo North and Comox. Balance warranty + winter-ready features.</p>
+          <ul>
+            <li>$44,980 asking · 28,400 km</li>
+            <li>Delivery within 24 hrs anywhere from Cedar to Lantzville</li>
+          </ul>
+        </article>
+        <article>
+          <span class="tag">Work Trucks</span>
+          <h4>2023 Ford F-150 XLT Hybrid</h4>
+          <p>Contractor lead needing power outlets for job sites in Chemainus and Gabriola Island.</p>
+          <ul>
+            <li>$58,500 fleet pricing</li>
+            <li>Financing with coastal credit unions available</li>
+          </ul>
+        </article>
+        <article>
+          <span class="tag">EV & Plug-in</span>
+          <h4>2024 Hyundai IONIQ 5 Preferred</h4>
+          <p>Urban couple in Old City Quarter seeking Level 3 charging access and BC rebates.</p>
+          <ul>
+            <li>$51,900 before incentives</li>
+            <li>Home charger install referrals included</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <header>
+        <p class="eyebrow">3-step intake</p>
+        <h2>How Harbour City Car Leads works</h2>
+      </header>
+      <ol class="steps">
+        <li>
+          <h4>Share your wish list</h4>
+          <p>Complete the intake form with budget, timeline, and must-haves. We’ll confirm details with a quick text or call.</p>
+        </li>
+        <li>
+          <h4>Receive curated matches</h4>
+          <p>Within an hour you see up to five vetted offers from Nanaimo-area partners with transparent pricing.</p>
+        </li>
+        <li>
+          <h4>Book test drives or delivery</h4>
+          <p>Pick your favourite lead, schedule a viewing, or request remote paperwork if you’re on the ferry.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="local" id="local">
+      <div class="local__content">
+        <p class="eyebrow">Local insight</p>
+        <h2>Built for Nanaimo roads & coastal weather</h2>
+        <p>
+          From the Malahat to Jingle Pot Road, our network understands Island driving. Need corrosion protection, ferry-friendly insurance, or winter tire packages for Mt. Washington weekends? We’ve got specialists for that.
+        </p>
+        <div class="local__grid">
+          <article>
+            <h4>Neighbourhood coverage</h4>
+            <p>Departure Bay · Hammond Bay · Chase River · Cedar · Lantzville · Gabriola Island pickups.</p>
+          </article>
+          <article>
+            <h4>Financing partners</h4>
+            <p>Work with Island Savings, Coastal Community Credit Union, and specialized lenders for credit rebuilding.</p>
+          </article>
+          <article>
+            <h4>Delivery logistics</h4>
+            <p>White-glove delivery to Duke Point ferry, Nanaimo Airport (YCD), or straight to your driveway.</p>
+          </article>
+        </div>
+      </div>
+      <div class="local__image" role="presentation" aria-hidden="true"></div>
+    </section>
+
+    <section class="social-proof" id="stories">
+      <header>
+        <p class="eyebrow">Island stories</p>
+        <h2>Drivers we recently matched</h2>
+      </header>
+      <div class="testimonial-grid">
+        <figure>
+          <blockquote>“We needed a plug-in SUV that could handle Nanaimo to Tofino runs. Harbour City filtered the noise and lined up two perfect test drives the next day.”</blockquote>
+          <figcaption>— Priya & Mateo, North Nanaimo</figcaption>
+        </figure>
+        <figure>
+          <blockquote>“As a contractor in South Wellington I can’t waste time on dead leads. The team paired me with a dealer that already had fleet pricing approved.”</blockquote>
+          <figcaption>— Connor, Mid-Island Carpentry</figcaption>
+        </figure>
+        <figure>
+          <blockquote>“I was rebuilding credit after moving back from Alberta. They found a credit union willing to work with my situation and I drove off in a CX-5 within a week.”</blockquote>
+          <figcaption>— Kelsey, Old City Quarter</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <header>
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions from Nanaimo shoppers</h2>
+      </header>
+      <div class="faq-list">
+        <article>
+          <h4>Do you charge drivers?</h4>
+          <p>No. Partners sponsor the platform so it stays free for residents. We only get paid when you approve a connection.</p>
+        </article>
+        <article>
+          <h4>Will this hurt my credit?</h4>
+          <p>We never run credit. Once you choose a dealer or lender they’ll request consent for any checks.</p>
+        </article>
+        <article>
+          <h4>How fast can I get a vehicle?</h4>
+          <p>Most Nanaimo drivers receive initial matches within an hour and finalize paperwork within 48 hours, depending on inventory.</p>
+        </article>
+        <article>
+          <h4>Can you help with trades?</h4>
+          <p>Yes. Include trade details in your request and we’ll line up partners who can appraise remotely or on-site.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div>
+      <h3>Harbour City Car Leads</h3>
+      <p>Local intake team based in downtown Nanaimo. Office visits by appointment only.</p>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <h4>Contact</h4>
+        <p>Call / Text: <a href="tel:+12508001234">(250) 800-1234</a></p>
+        <p>Email: <a href="mailto:intake@harbourcitycars.ca">intake@harbourcitycars.ca</a></p>
+      </div>
+      <div>
+        <h4>Hours (PST)</h4>
+        <p>Mon–Fri: 8:00a - 7:00p</p>
+        <p>Sat: 9:00a - 4:00p</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p>238 Franklyn St, Nanaimo BC</p>
+        <p>Parking available behind building</p>
+      </div>
+    </div>
+    <p class="footer-note">© <span id="year"></span> Harbour City Car Leads. Proudly serving Nanaimo, BC and the Mid-Island corridor.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
