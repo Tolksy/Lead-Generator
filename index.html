@@ -12,9 +12,10 @@
 </head>
 <body>
     <header class="hero" id="top">
-      <nav class="nav" aria-label="Primary navigation">
+        <nav class="nav" aria-label="Primary navigation">
         <div class="logo">Harbour City Car Leads</div>
         <ul class="nav-links">
+            <li><a href="#pain-points">Pain Points</a></li>
           <li><a href="#benefits">Benefits</a></li>
           <li><a href="#inventory">Inventory</a></li>
           <li><a href="#process">Process</a></li>
@@ -23,13 +24,19 @@
         <button class="nav-cta" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'});">Get Matches</button>
       </nav>
     <div class="hero__content">
-      <p class="eyebrow">Nanaimo · Ladysmith · Parksville</p>
-      <h1>Drive the Island sooner with pre-qualified car leads.</h1>
-      <p class="hero__text">
-        We connect serious Vancouver Island shoppers with vetted dealers, brokers, and private sellers across Nanaimo, BC. Tell us what you need and receive curated matches in under 60 minutes.
-      </p>
+        <p class="eyebrow">Nanaimo · Ladysmith · Parksville</p>
+        <h1>Dream car energy, without the credit stress.</h1>
+        <p class="hero__promise">Dream car locked · Credit doesn’t matter · Island-best pricing</p>
+        <p class="hero__text">
+          Fire off your wish list and we’ll ping 42 Island partners instantly. Within an hour you’ll see real offers that keep payments low and paperwork frictionless.
+        </p>
+        <ul class="hero__bullets">
+          <li>Hold today’s price before the lot closes.</li>
+          <li>Soft-match lenders—even if you’re rebuilding credit.</li>
+          <li>Transparent out-the-door numbers in one text thread.</li>
+        </ul>
       <div class="hero__actions">
-        <button class="primary" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'});">Start a Request</button>
+          <button class="primary" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'});">Lock My Dream Car</button>
         <a class="secondary" href="#local">Why Nanaimo trusts us →</a>
       </div>
       <dl class="hero__metrics">
@@ -49,72 +56,132 @@
     </div>
   </header>
 
-  <main>
+    <main>
+      <section class="pain-points" id="pain-points">
+        <div class="pain-points__intro">
+          <p class="eyebrow">Impulse friendly</p>
+          <h2>The 3 pain points killing your impulse buy — gone.</h2>
+          <p>We built this flow for drivers who make decisions fast. Tap the pain that’s stopping you, then fire through the info + credit form to get matched.</p>
+        </div>
+        <div class="pain-points__grid">
+          <article>
+            <h3>Dream car disappears overnight</h3>
+            <p>Island lots flip inventory daily. We broadcast your exact trim + color to every vetted partner and hold the vehicle for up to 24 hours.</p>
+            <p class="micro-copy">Solution: 42 partner inventories pinged in under 5 minutes.</p>
+          </article>
+          <article>
+            <h3>Credit score anxiety</h3>
+            <p>Whether you’re rebuilding or brand new to Canada, we route your profile to lenders who say “yes” first — without hard checks.</p>
+            <p class="micro-copy">Solution: Soft-match approvals. Credit doesn’t matter until you’re ready.</p>
+          </article>
+          <article>
+            <h3>Prices that jump at the desk</h3>
+            <p>We require full out-the-door quotes before you step foot on a lot. Taxes, doc fees, rebates, all verified.</p>
+            <p class="micro-copy">Solution: Best-price guarantee from competing dealers in one thread.</p>
+          </article>
+        </div>
+        <div class="pain-points__cta">
+          <button class="primary" type="button" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'});">Solve my pain point</button>
+          <p>Already convinced? Slide into the Information + Credit application below and we’ll text you matches.</p>
+        </div>
+      </section>
+
     <section class="form-panel" id="apply">
       <div class="form-panel__intro">
-        <p class="eyebrow">Fast intake</p>
-        <h2>Tell us what you drive, where you live, and your budget.</h2>
-        <p>We only share your request with verified Nanaimo-area sellers that fit your price point, credit situation, and preferred timeline.</p>
+          <p class="eyebrow">Fast intake</p>
+          <h2>Two-step form to hold offers before someone else does.</h2>
+          <p>First we grab your contact + dream car details, then we pre-qual you with lenders who won’t judge your credit story.</p>
         <ul>
-          <li>Works for new, used, EV, and commercial vehicles</li>
-          <li>No spam — you pick who contacts you back</li>
-          <li>Backed by locals in Departure Bay and South Nanaimo</li>
+            <li>Works for new, used, EV, and commercial vehicles</li>
+            <li>No spam — you pick who contacts you back</li>
+            <li>Credit-safe: no hard checks until you approve a partner</li>
         </ul>
       </div>
       <form class="lead-form" autocomplete="on">
-        <div class="grid">
-          <label>
-            Full Name
-              <input type="text" name="name" placeholder="Jamie Fraser" autocomplete="name" required>
-          </label>
-          <label>
-            Email
-              <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-          </label>
-          <label>
-            Mobile Phone
-              <input type="tel" name="phone" placeholder="(250) 555-0199" autocomplete="tel" inputmode="tel" data-phone-input required>
-              <span class="input-hint">We’ll text updates first, so share the best mobile number.</span>
-          </label>
-          <label>
-            Preferred Contact Method
-            <select name="contact" required>
-              <option value="">Choose one</option>
-              <option value="call">Phone Call</option>
-              <option value="text">Text Message</option>
-              <option value="email">Email</option>
-            </select>
-          </label>
-          <label>
-            Budget Range (CAD)
-            <select name="budget" required>
-              <option value="">Select range</option>
-              <option value="under-20">Under $20K</option>
-              <option value="20-35">$20K - $35K</option>
-              <option value="35-55">$35K - $55K</option>
-              <option value="55-plus">$55K +</option>
-            </select>
-          </label>
-          <label>
-            Credit Profile
-            <select name="credit" required>
-              <option value="">Select one</option>
-              <option value="prime">Excellent (720+)</option>
-              <option value="mid">Average (640-719)</option>
-              <option value="rebuilding">Rebuilding (560-639)</option>
-              <option value="new">New credit / newcomer</option>
-            </select>
-          </label>
-        </div>
-        <label>
-          Vehicle Goals
-          <textarea name="details" rows="4" placeholder="Example: Need an AWD SUV for commuting between Chase River and Parksville, prefer 2021+ with warranty." required></textarea>
-        </label>
-        <label>
-          Postal Code (for delivery + insurance estimates)
-            <input type="text" name="postal" maxlength="7" placeholder="V9R 5H5" autocomplete="postal-code" inputmode="text" data-postal-input pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$" required>
-            <span class="input-hint">Format: V9R 5H5 — we auto-capitalize for you.</span>
-        </label>
+          <fieldset>
+            <legend>Information form</legend>
+            <div class="grid">
+              <label>
+                Full Name
+                  <input type="text" name="name" placeholder="Jamie Fraser" autocomplete="name" required>
+              </label>
+              <label>
+                Email
+                  <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+              </label>
+              <label>
+                Mobile Phone
+                  <input type="tel" name="phone" placeholder="(250) 555-0199" autocomplete="tel" inputmode="tel" data-phone-input required>
+                  <span class="input-hint">We’ll text updates first, so share the best mobile number.</span>
+              </label>
+              <label>
+                Preferred Contact Method
+                <select name="contact" required>
+                  <option value="">Choose one</option>
+                  <option value="call">Phone Call</option>
+                  <option value="text">Text Message</option>
+                  <option value="email">Email</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              Dream car & must-haves
+              <textarea name="details" rows="4" placeholder="Example: Need an AWD SUV for commuting between Chase River and Parksville, prefer 2021+ with warranty." required></textarea>
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Credit application form</legend>
+            <div class="grid">
+              <label>
+                Budget Range (CAD)
+                <select name="budget" required>
+                  <option value="">Select range</option>
+                  <option value="under-20">Under $20K</option>
+                  <option value="20-35">$20K - $35K</option>
+                  <option value="35-55">$35K - $55K</option>
+                  <option value="55-plus">$55K +</option>
+                </select>
+              </label>
+              <label>
+                Credit Profile
+                <select name="credit" required>
+                  <option value="">Select one</option>
+                  <option value="prime">Excellent (720+)</option>
+                  <option value="mid">Average (640-719)</option>
+                  <option value="rebuilding">Rebuilding (560-639)</option>
+                  <option value="new">New credit / newcomer</option>
+                </select>
+              </label>
+              <label>
+                Buying Timeline
+                <select name="timeline" required>
+                  <option value="">Choose timeline</option>
+                  <option value="48h">Within 48 hours</option>
+                  <option value="week">This week</option>
+                  <option value="month">Within 30 days</option>
+                  <option value="flex">Browsing / flexible</option>
+                </select>
+              </label>
+              <label>
+                Down payment ready?
+                <select name="downpayment" required>
+                  <option value="">Select one</option>
+                  <option value="ready">Yes, cash or trade ready</option>
+                  <option value="partial">Need to split over time</option>
+                  <option value="none">No down payment available</option>
+                </select>
+              </label>
+              <label>
+                Postal Code (for delivery + insurance estimates)
+                  <input type="text" name="postal" maxlength="7" placeholder="V9R 5H5" autocomplete="postal-code" inputmode="text" data-postal-input pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$" required>
+                  <span class="input-hint">Format: V9R 5H5 — we auto-capitalize for you.</span>
+              </label>
+            </div>
+            <label>
+              Credit story or trade details (optional)
+              <textarea name="creditNotes" rows="3" placeholder="Share anything lenders should know: recent discharge, self-employed income, trade-in VIN, etc."></textarea>
+            </label>
+          </fieldset>
         <div class="agreement">
           <input type="checkbox" id="consent" required>
           <label for="consent">I agree to be contacted by Harbour City Car Leads partners and understand I can unsubscribe anytime.</label>
