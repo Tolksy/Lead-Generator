@@ -1,110 +1,124 @@
-const form = document.querySelector('.lead-form');
-const statusBox = document.querySelector('.form-status');
 const yearEl = document.getElementById('year');
-const faqButtons = document.querySelectorAll('.faq-question');
-const floatingCta = document.querySelector('[data-floating-cta]');
-const floatingCtaBtn = document.querySelector('[data-floating-cta-btn]');
-const applySection = document.getElementById('apply');
+const form = document.querySelector('.ally-form');
+const statusBox = form?.querySelector('.form-status');
+const stepDisplay = form?.querySelector('[data-step-count]');
+const steps = form ? Array.from(form.querySelectorAll('.form-step')) : [];
+const nextBtn = form?.querySelector('[data-next]');
+const prevBtn = form?.querySelector('[data-prev]');
+const submitBtn = form?.querySelector('[data-submit]');
+const slider = form?.querySelector('[data-budget-slider]');
+const sliderOutput = form?.querySelector('[data-budget-output]');
+const phoneInput = form?.querySelector('[data-phone-input]');
 
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-if (form && statusBox) {
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    statusBox.textContent = 'Matching you with vetted partners…';
-    statusBox.style.color = '#1c63ff';
-
-    const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
-
-    // Fake async send to illustrate integration point
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 900));
-      const firstName = payload.name?.split(' ')[0] || 'Driver';
-      statusBox.textContent = `${firstName}, your request is queued. Expect curated Nanaimo matches shortly.`;
-      statusBox.style.color = '#0a7c49';
-      form.reset();
-    } catch (error) {
-      console.error(error);
-      statusBox.textContent = 'Something went wrong. Please try again or text (250) 800-1234.';
-      statusBox.style.color = '#c53030';
-    }
-  });
-}
-
-if (form) {
-  const postalInput = form.querySelector('[data-postal-input]');
-  const phoneInput = form.querySelector('[data-phone-input]');
-
-  postalInput?.addEventListener('input', () => {
-    const cleaned = postalInput.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
-    postalInput.value = cleaned.length > 3 ? `${cleaned.slice(0, 3)} ${cleaned.slice(3)}` : cleaned;
-  });
-
-  phoneInput?.addEventListener('input', () => {
-    const digits = phoneInput.value.replace(/\D/g, '').slice(0, 10);
-    let formatted = digits;
-
-    if (digits.length > 6) {
-      formatted = `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
-    } else if (digits.length > 3) {
-      formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
-    } else if (digits.length > 0) {
-      formatted = `(${digits}`;
-    }
-
-    phoneInput.value = formatted;
-  });
-}
-
-const toggleFloatingCta = () => {
-  if (!floatingCta) return;
-  const scrolledPastHero = window.scrollY > window.innerHeight * 0.4;
-
-  let formInView = false;
-  if (applySection) {
-    const rect = applySection.getBoundingClientRect();
-    formInView = rect.top < window.innerHeight * 0.75 && rect.bottom > window.innerHeight * 0.25;
-  }
-
-  if (scrolledPastHero && !formInView) {
-    floatingCta.classList.add('is-visible');
-    floatingCta.setAttribute('aria-hidden', 'false');
-  } else {
-    floatingCta.classList.remove('is-visible');
-    floatingCta.setAttribute('aria-hidden', 'true');
-  }
-};
-
-window.addEventListener('scroll', toggleFloatingCta, { passive: true });
-window.addEventListener('resize', toggleFloatingCta);
-toggleFloatingCta();
-
-const scrollToForm = () => {
-  applySection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-};
-
-floatingCtaBtn?.addEventListener('click', scrollToForm);
-
-faqButtons.forEach((button) => {
-  const answer = button.nextElementSibling;
-  if (!(answer instanceof HTMLElement)) return;
-
-  button.addEventListener('click', () => {
-    const isOpen = button.getAttribute('aria-expanded') === 'true';
-
-    faqButtons.forEach((otherBtn) => {
-      if (otherBtn === button) return;
-      const otherAnswer = otherBtn.nextElementSibling;
-      otherBtn.setAttribute('aria-expanded', 'false');
-      if (otherAnswer instanceof HTMLElement) {
-        otherAnswer.hidden = true;
-      }
-    });
-
-    button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-    answer.hidden = isOpen;
+document.querySelectorAll('[data-scroll]').forEach((trigger) => {
+  trigger.addEventListener('click', () => {
+    const target = document.querySelector(trigger.getAttribute('data-scroll'));
+    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
+const formatPhone = (value) => {
+  const digits = value.replace(/\D/g, '').slice(0, 10);
+  if (digits.length <= 3) return digits ? `(${digits}` : '';
+  if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+};
+
+phoneInput?.addEventListener('input', () => {
+  phoneInput.value = formatPhone(phoneInput.value);
+});
+
+slider?.addEventListener('input', () => {
+  sliderOutput.textContent = `$${slider.value}/mo`;
+});
+
+if (form && steps.length) {
+  let currentStep = 0;
+
+  const updateControls = () => {
+    steps.forEach((step, index) => {
+      const isActive = index === currentStep;
+      step.classList.toggle('is-active', isActive);
+      step.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+    });
+
+    if (stepDisplay) {
+      stepDisplay.textContent = currentStep + 1;
+    }
+
+    if (prevBtn) prevBtn.disabled = currentStep === 0;
+    if (nextBtn) nextBtn.hidden = currentStep === steps.length - 1;
+    if (submitBtn) submitBtn.hidden = currentStep !== steps.length - 1;
+  };
+
+  const validateStep = () => {
+    const step = steps[currentStep];
+    if (!step) return true;
+
+    if (currentStep === 0) {
+      return Boolean(step.querySelector('input[type="radio"]:checked'));
+    }
+
+    if (currentStep === steps.length - 1) {
+      const requiredFields = step.querySelectorAll('input[required]');
+      return Array.from(requiredFields).every((input) => input.value.trim());
+    }
+
+    return true;
+  };
+
+  updateControls();
+
+  nextBtn?.addEventListener('click', () => {
+    if (!validateStep()) {
+      const invalid = steps[currentStep].querySelector('input:invalid') || steps[currentStep].querySelector('input[required]');
+      invalid?.reportValidity();
+      return;
+    }
+    currentStep = Math.min(currentStep + 1, steps.length - 1);
+    updateControls();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    currentStep = Math.max(currentStep - 1, 0);
+    updateControls();
+  });
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!validateStep()) {
+      const invalid = steps[currentStep].querySelector('input:invalid') || steps[currentStep].querySelector('input[required]');
+      invalid?.reportValidity();
+      return;
+    }
+
+    if (statusBox) {
+      statusBox.textContent = 'Building your stealth-market analysis…';
+    }
+
+    const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1200));
+      const firstName = payload.firstName || 'Driver';
+      if (statusBox) {
+        statusBox.textContent = `${firstName}, your Perfect Match report is hitting your inbox. Watch for a text in 10 minutes.`;
+      }
+      form.reset();
+      sliderOutput.textContent = '$450/mo';
+      phoneInput?.dispatchEvent(new Event('input'));
+      currentStep = 0;
+      updateControls();
+    } catch (error) {
+      console.error(error);
+      if (statusBox) {
+        statusBox.textContent = 'Something glitched. Reload or text 1 (888) 555-1010.';
+      }
+    }
+  });
+}

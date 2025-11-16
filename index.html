@@ -3,396 +3,248 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Local car leads website connecting Nanaimo, BC drivers with vetted dealerships, brokers, and private sellers.">
-  <title>Nanaimo Car Leads | Fast Local Matches</title>
+  <meta name="description" content="Tired of car shopping? Get a free, no-pressure Perfect Match report from your Buyer’s Ally. We hunt, you drive.">
+  <title>Find Your Perfect Car in Your City | Free Perfect Match Report</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="hero" id="top">
-        <nav class="nav" aria-label="Primary navigation">
-        <div class="logo">Harbour City Car Leads</div>
-        <ul class="nav-links">
-            <li><a href="#pain-points">Pain Points</a></li>
-          <li><a href="#benefits">Benefits</a></li>
-          <li><a href="#inventory">Inventory</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-        <button class="nav-cta" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'});">Get Matches</button>
-      </nav>
-    <div class="hero__content">
-        <p class="eyebrow">Nanaimo · Ladysmith · Parksville</p>
-        <h1>Dream car energy, without the credit stress.</h1>
-        <p class="hero__promise">Dream car locked · Credit doesn’t matter · Island-best pricing</p>
-        <p class="hero__text">
-          Fire off your wish list and we’ll ping 42 Island partners instantly. Within an hour you’ll see real offers that keep payments low and paperwork frictionless.
-        </p>
-        <ul class="hero__bullets">
-          <li>Hold today’s price before the lot closes.</li>
-          <li>Soft-match lenders—even if you’re rebuilding credit.</li>
-          <li>Transparent out-the-door numbers in one text thread.</li>
-        </ul>
-      <div class="hero__actions">
-          <button class="primary" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'});">Lock My Dream Car</button>
-        <a class="secondary" href="#local">Why Nanaimo trusts us →</a>
+  <header class="hero" id="top">
+    <nav class="nav" aria-label="Primary">
+      <div class="logo">Buyer’s&nbsp;Ally</div>
+      <button class="nav__cta" data-scroll="#lead-form">YES, FIND MY PERFECT CAR NOW</button>
+    </nav>
+    <div class="hero__grid">
+      <div class="hero__content">
+        <p class="hero__tag">Powered by Cardone x Hormozi</p>
+        <h1>Stop Guessing. Start Driving.</h1>
+        <p class="hero__subhead">Get a FREE, zero-obligation “Perfect Match” report sent to your inbox in 10 minutes.</p>
+        <p class="hero__offer">We do the hunting. We find the hidden deals. We give you the “what we would pay” price. You just tell us the dream.</p>
+        <div class="hero__actions">
+          <button class="btn btn-primary" data-scroll="#lead-form">YES, FIND MY PERFECT CAR NOW</button>
+          <p class="hero__proof">Avg. turnaround 10 minutes · 100% pressure-free</p>
+        </div>
       </div>
-      <dl class="hero__metrics">
-        <div>
-          <dt>2,180+</dt>
-          <dd>Island drivers matched in 2024</dd>
+      <div class="hero__visual" role="presentation" aria-hidden="true">
+        <div class="hero__card">
+          <p class="hero__card-label">Stealth-Market Report</p>
+          <p class="hero__card-value">Top 3 Matches Secured</p>
+          <ul>
+            <li>Hidden dealer incentives</li>
+            <li>“What we’d pay” pricing</li>
+            <li>Held for 24 hours</li>
+          </ul>
         </div>
-        <div>
-          <dt>42</dt>
-          <dd>Partner lots across Mid-Island</dd>
-        </div>
-        <div>
-          <dt>58 min</dt>
-          <dd>Average match time</dd>
-        </div>
-      </dl>
+      </div>
     </div>
   </header>
 
-    <main>
-      <section class="pain-points" id="pain-points">
-        <div class="pain-points__intro">
-          <p class="eyebrow">Impulse friendly</p>
-          <h2>The 3 pain points killing your impulse buy — gone.</h2>
-          <p>We built this flow for drivers who make decisions fast. Tap the pain that’s stopping you, then fire through the info + credit form to get matched.</p>
-        </div>
-        <div class="pain-points__grid">
-          <article>
-            <h3>Dream car disappears overnight</h3>
-            <p>Island lots flip inventory daily. We broadcast your exact trim + color to every vetted partner and hold the vehicle for up to 24 hours.</p>
-            <p class="micro-copy">Solution: 42 partner inventories pinged in under 5 minutes.</p>
-          </article>
-          <article>
-            <h3>Credit score anxiety</h3>
-            <p>Whether you’re rebuilding or brand new to Canada, we route your profile to lenders who say “yes” first — without hard checks.</p>
-            <p class="micro-copy">Solution: Soft-match approvals. Credit doesn’t matter until you’re ready.</p>
-          </article>
-          <article>
-            <h3>Prices that jump at the desk</h3>
-            <p>We require full out-the-door quotes before you step foot on a lot. Taxes, doc fees, rebates, all verified.</p>
-            <p class="micro-copy">Solution: Best-price guarantee from competing dealers in one thread.</p>
-          </article>
-        </div>
-        <div class="pain-points__cta">
-          <button class="primary" type="button" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'});">Solve my pain point</button>
-          <p>Already convinced? Slide into the Information + Credit application below and we’ll text you matches.</p>
-        </div>
-      </section>
-
-    <section class="form-panel" id="apply">
-      <div class="form-panel__intro">
-          <p class="eyebrow">Fast intake</p>
-          <h2>Two-step form to hold offers before someone else does.</h2>
-          <p>First we grab your contact + dream car details, then we pre-qual you with lenders who won’t judge your credit story.</p>
-        <ul>
-            <li>Works for new, used, EV, and commercial vehicles</li>
-            <li>No spam — you pick who contacts you back</li>
-            <li>Credit-safe: no hard checks until you approve a partner</li>
-        </ul>
+  <main>
+    <section class="section section--dark" id="problem">
+      <div class="section__header">
+        <h2>The Car Buying “Game” is Rigged Against You.</h2>
+        <p>You’re not paranoid—the old way is designed to drain your time, energy, and wallet. We call it out so you never fall for it again.</p>
       </div>
-      <form class="lead-form" autocomplete="on">
-          <fieldset>
-            <legend>Information form</legend>
-            <div class="grid">
-              <label>
-                Full Name
-                  <input type="text" name="name" placeholder="Jamie Fraser" autocomplete="name" required>
-              </label>
-              <label>
-                Email
-                  <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-              </label>
-              <label>
-                Mobile Phone
-                  <input type="tel" name="phone" placeholder="(250) 555-0199" autocomplete="tel" inputmode="tel" data-phone-input required>
-                  <span class="input-hint">We’ll text updates first, so share the best mobile number.</span>
-              </label>
-              <label>
-                Preferred Contact Method
-                <select name="contact" required>
-                  <option value="">Choose one</option>
-                  <option value="call">Phone Call</option>
-                  <option value="text">Text Message</option>
-                  <option value="email">Email</option>
-                </select>
-              </label>
-            </div>
-            <label>
-              Dream car & must-haves
-              <textarea name="details" rows="4" placeholder="Example: Need an AWD SUV for commuting between Chase River and Parksville, prefer 2021+ with warranty." required></textarea>
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>Credit application form</legend>
-            <div class="grid">
-              <label>
-                Budget Range (CAD)
-                <select name="budget" required>
-                  <option value="">Select range</option>
-                  <option value="under-20">Under $20K</option>
-                  <option value="20-35">$20K - $35K</option>
-                  <option value="35-55">$35K - $55K</option>
-                  <option value="55-plus">$55K +</option>
-                </select>
-              </label>
-              <label>
-                Credit Profile
-                <select name="credit" required>
-                  <option value="">Select one</option>
-                  <option value="prime">Excellent (720+)</option>
-                  <option value="mid">Average (640-719)</option>
-                  <option value="rebuilding">Rebuilding (560-639)</option>
-                  <option value="new">New credit / newcomer</option>
-                </select>
-              </label>
-              <label>
-                Buying Timeline
-                <select name="timeline" required>
-                  <option value="">Choose timeline</option>
-                  <option value="48h">Within 48 hours</option>
-                  <option value="week">This week</option>
-                  <option value="month">Within 30 days</option>
-                  <option value="flex">Browsing / flexible</option>
-                </select>
-              </label>
-              <label>
-                Down payment ready?
-                <select name="downpayment" required>
-                  <option value="">Select one</option>
-                  <option value="ready">Yes, cash or trade ready</option>
-                  <option value="partial">Need to split over time</option>
-                  <option value="none">No down payment available</option>
-                </select>
-              </label>
-              <label>
-                Postal Code (for delivery + insurance estimates)
-                  <input type="text" name="postal" maxlength="7" placeholder="V9R 5H5" autocomplete="postal-code" inputmode="text" data-postal-input pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$" required>
-                  <span class="input-hint">Format: V9R 5H5 — we auto-capitalize for you.</span>
-              </label>
-            </div>
-            <label>
-              Credit story or trade details (optional)
-              <textarea name="creditNotes" rows="3" placeholder="Share anything lenders should know: recent discharge, self-employed income, trade-in VIN, etc."></textarea>
-            </label>
-          </fieldset>
-        <div class="agreement">
-          <input type="checkbox" id="consent" required>
-          <label for="consent">I agree to be contacted by Harbour City Car Leads partners and understand I can unsubscribe anytime.</label>
+      <div class="problem__grid">
+        <article>
+          <span class="problem__icon" aria-hidden="true">✕</span>
+          <h3>Wasting Weekends</h3>
+          <p>Tired of burning your Saturday walking onto 10 different lots?</p>
+        </article>
+        <article>
+          <span class="problem__icon" aria-hidden="true">✕</span>
+          <h3>Pressure & Sharks</h3>
+          <p>Hate the feeling of a commission-breath salesman breathing down your neck?</p>
+        </article>
+        <article>
+          <span class="problem__icon" aria-hidden="true">✕</span>
+          <h3>Fear of Overpaying</h3>
+          <p>Terrified you’re one signature away from the worst deal of your life?</p>
+        </article>
+        <article>
+          <span class="problem__icon" aria-hidden="true">✕</span>
+          <h3>Overwhelming Options</h3>
+          <p>Drowning in 500 online listings that all look the same?</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="solution">
+      <div class="section__header">
+        <h2>We Flipped the Model. You Get a Private Advisor (For Free).</h2>
+        <p>You’re not “shopping” anymore—you’re briefing an elite car acquisition team focused on your vibe, your budget, and your timeline.</p>
+      </div>
+      <div class="solution__steps">
+        <article>
+          <span class="step-num">1</span>
+          <h3>You Tell Us the Vibe</h3>
+          <p>In 60 seconds, describe your perfect car, budget, and must-haves.</p>
+        </article>
+        <article>
+          <span class="step-num">2</span>
+          <h3>We Hunt for You</h3>
+          <p>We scan on-market, off-market, and pre-auction lists the public never sees.</p>
+        </article>
+        <article>
+          <span class="step-num">3</span>
+          <h3>You Get the Report</h3>
+          <p>A 1-page report hits your inbox with Top 3 matches, transparent all-in pricing, zero pressure.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--form" id="lead-form">
+      <div class="form__intro">
+        <p class="eyebrow">The Close</p>
+        <h2>Start Your FREE “Perfect Match” Report</h2>
+        <p>This isn’t a boring form. It’s a fast, conversational quiz that builds your stealth-market analysis in real-time.</p>
+      </div>
+      <form class="ally-form" autocomplete="on" novalidate>
+        <div class="form-progress" role="status" aria-live="polite">
+          Step <span data-step-count>1</span> of 4
         </div>
-        <button type="submit" class="primary">Get Local Matches</button>
-        <p class="form-footnote">Secure intake · Data stored in Canada · No credit check until you authorize it.</p>
+
+        <div class="form-step is-active" data-step="1">
+          <p class="form-step__title">First, what’s your primary goal?</p>
+          <div class="option-grid" role="group" aria-label="Primary goal">
+            <label class="option-card">
+              <input type="radio" name="goal" value="Upgrade My Style" required>
+              <span>Upgrade My Style</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="goal" value="Family Safety">
+              <span>Family Safety</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="goal" value="Better on Gas">
+              <span>Better on Gas</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="goal" value="Just Browsing">
+              <span>Just Browsing</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="2">
+          <p class="form-step__title">What’s your ideal monthly payment range?</p>
+          <div class="slider-field">
+            <input type="range" name="budget" min="200" max="1000" step="50" value="450" data-budget-slider>
+            <div class="slider-value">
+              <span>Budget Target:</span>
+              <strong data-budget-output>$450/mo</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="3">
+          <p class="form-step__title">Any “must-have” features?</p>
+          <div class="option-grid option-grid--checkbox" role="group" aria-label="Must-have features">
+            <label class="option-card">
+              <input type="checkbox" name="features" value="Leather Seats">
+              <span>Leather Seats</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="features" value="Sunroof">
+              <span>Sunroof</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="features" value="Apple CarPlay">
+              <span>Apple CarPlay</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="features" value="AWD">
+              <span>AWD</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="features" value="Doesn’t Matter">
+              <span>Doesn’t Matter</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="4">
+          <p class="form-step__title">You’re all set! We’re building your report.</p>
+          <label>
+            First Name
+            <input type="text" name="firstName" placeholder="First Name" autocomplete="given-name" required>
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>
+            Phone <span class="optional">(optional, for 10X faster results)</span>
+            <input type="tel" name="phone" placeholder="(555) 555-1212" autocomplete="tel" inputmode="tel" data-phone-input>
+          </label>
+        </div>
+
+        <div class="form-controls">
+          <button type="button" class="btn btn-secondary" data-prev disabled>Back</button>
+          <button type="button" class="btn btn-primary" data-next>Next</button>
+          <button type="submit" class="btn btn-primary" data-submit hidden>SEND MY FREE REPORT NOW!</button>
+        </div>
         <div class="form-status" aria-live="polite"></div>
       </form>
     </section>
 
-    <section class="value-props" id="benefits">
-      <div>
-        <h3>Why Nanaimo drivers start here</h3>
+    <section class="section section--proof" id="proof">
+      <div class="section__header">
+        <h2>Don’t Take Our Word For It.</h2>
+        <p>Real drivers. Real stealth-market wins. Zero showroom games.</p>
       </div>
-      <div class="value-grid">
-        <article>
-          <h4>Local-first matchmaking</h4>
-          <p>We prioritize sellers within 45 minutes of downtown Nanaimo, so viewings and delivery are easy even if you commute to Duke Point or Northfield.</p>
-        </article>
-        <article>
-          <h4>Transparent incentives</h4>
-          <p>Partners disclose doc fees, freight, and lender incentives upfront. You always see out-the-door numbers before you sign.</p>
-        </article>
-        <article>
-          <h4>Credit-safe process</h4>
-          <p>Your profile is shared anonymously until you pick a match. That means fewer hard checks and better leverage when negotiating.</p>
-        </article>
-        <article>
-          <h4>Island-wide inventory</h4>
-          <p>We source across Nanaimo, Ladysmith, Parksville, Qualicum, and Courtenay to secure the exact trim, color, or upfit you need.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="inventory" id="inventory">
-      <header>
-        <p class="eyebrow">Fresh leads daily</p>
-        <h2>Sample inventory that moves fast</h2>
-        <p>These vehicles were requested by real Island drivers this month. Submit your criteria and we’ll shortlist similar options.</p>
-      </header>
-      <div class="inventory-cards">
-        <article>
-          <span class="tag">Family SUVs</span>
-          <h4>2022 Toyota Highlander XLE AWD</h4>
-          <p>Third-row commuting between Nanaimo North and Comox. Balance warranty + winter-ready features.</p>
-          <ul>
-            <li>$44,980 asking · 28,400 km</li>
-            <li>Delivery within 24 hrs anywhere from Cedar to Lantzville</li>
-          </ul>
-        </article>
-        <article>
-          <span class="tag">Work Trucks</span>
-          <h4>2023 Ford F-150 XLT Hybrid</h4>
-          <p>Contractor lead needing power outlets for job sites in Chemainus and Gabriola Island.</p>
-          <ul>
-            <li>$58,500 fleet pricing</li>
-            <li>Financing with coastal credit unions available</li>
-          </ul>
-        </article>
-        <article>
-          <span class="tag">EV & Plug-in</span>
-          <h4>2024 Hyundai IONIQ 5 Preferred</h4>
-          <p>Urban couple in Old City Quarter seeking Level 3 charging access and BC rebates.</p>
-          <ul>
-            <li>$51,900 before incentives</li>
-            <li>Home charger install referrals included</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="process" id="process">
-      <header>
-        <p class="eyebrow">3-step intake</p>
-        <h2>How Harbour City Car Leads works</h2>
-      </header>
-      <ol class="steps">
-        <li>
-          <h4>Share your wish list</h4>
-          <p>Complete the intake form with budget, timeline, and must-haves. We’ll confirm details with a quick text or call.</p>
-        </li>
-        <li>
-          <h4>Receive curated matches</h4>
-          <p>Within an hour you see up to five vetted offers from Nanaimo-area partners with transparent pricing.</p>
-        </li>
-        <li>
-          <h4>Book test drives or delivery</h4>
-          <p>Pick your favourite lead, schedule a viewing, or request remote paperwork if you’re on the ferry.</p>
-        </li>
-      </ol>
-    </section>
-
-    <section class="local" id="local">
-      <div class="local__content">
-        <p class="eyebrow">Local insight</p>
-        <h2>Built for Nanaimo roads & coastal weather</h2>
-        <p>
-          From the Malahat to Jingle Pot Road, our network understands Island driving. Need corrosion protection, ferry-friendly insurance, or winter tire packages for Mt. Washington weekends? We’ve got specialists for that.
-        </p>
-        <div class="local__grid">
-          <article>
-            <h4>Neighbourhood coverage</h4>
-            <p>Departure Bay · Hammond Bay · Chase River · Cedar · Lantzville · Gabriola Island pickups.</p>
-          </article>
-          <article>
-            <h4>Financing partners</h4>
-            <p>Work with Island Savings, Coastal Community Credit Union, and specialized lenders for credit rebuilding.</p>
-          </article>
-          <article>
-            <h4>Delivery logistics</h4>
-            <p>White-glove delivery to Duke Point ferry, Nanaimo Airport (YCD), or straight to your driveway.</p>
-          </article>
-        </div>
-      </div>
-      <div class="local__image" role="presentation" aria-hidden="true"></div>
-    </section>
-
-    <section class="social-proof" id="stories">
-      <header>
-        <p class="eyebrow">Island stories</p>
-        <h2>Drivers we recently matched</h2>
-      </header>
       <div class="testimonial-grid">
         <figure>
-          <blockquote>“We needed a plug-in SUV that could handle Nanaimo to Tofino runs. Harbour City filtered the noise and lined up two perfect test drives the next day.”</blockquote>
-          <figcaption>— Priya & Mateo, North Nanaimo</figcaption>
+          <blockquote>“I told Alex I was ‘just thinking’ about a new truck. 48 hours later, one option. Perfect. Bought it from my couch.”</blockquote>
+          <figcaption>— Marcus B.</figcaption>
         </figure>
         <figure>
-          <blockquote>“As a contractor in South Wellington I can’t waste time on dead leads. The team paired me with a dealer that already had fleet pricing approved.”</blockquote>
-          <figcaption>— Connor, Mid-Island Carpentry</figcaption>
+          <blockquote>“They found me a 2-year-old Audi Q5 under market value. The report was more honest than any dealership.”</blockquote>
+          <figcaption>— Daniela R.</figcaption>
         </figure>
         <figure>
-          <blockquote>“I was rebuilding credit after moving back from Alberta. They found a credit union willing to work with my situation and I drove off in a CX-5 within a week.”</blockquote>
-          <figcaption>— Kelsey, Old City Quarter</figcaption>
+          <blockquote>“Instead of 20 random listings, I got three sniper picks with the real number I should pay. Done.”</blockquote>
+          <figcaption>— Trevor L.</figcaption>
         </figure>
+      </div>
+      <div class="logos" aria-label="Featured in">
+        <span>AutoWire</span>
+        <span>MotorCity Insider</span>
+        <span>Local Drive Radio</span>
       </div>
     </section>
 
-    <section class="faq" id="faq">
-      <header>
-        <p class="eyebrow">FAQ</p>
-        <h2>Questions from Nanaimo shoppers</h2>
-      </header>
-      <div class="faq-list">
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Do you charge drivers?</span>
-            </button>
-            <div class="faq-answer" hidden>
-              <p>No. Partners sponsor the platform so it stays free for residents. We only get paid when you approve a connection.</p>
-            </div>
-          </article>
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Will this hurt my credit?</span>
-            </button>
-            <div class="faq-answer" hidden>
-              <p>We never run credit. Once you choose a dealer or lender they’ll request consent for any checks.</p>
-            </div>
-          </article>
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>How fast can I get a vehicle?</span>
-            </button>
-            <div class="faq-answer" hidden>
-              <p>Most Nanaimo drivers receive initial matches within an hour and finalize paperwork within 48 hours, depending on inventory.</p>
-            </div>
-          </article>
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Can you help with trades?</span>
-            </button>
-            <div class="faq-answer" hidden>
-              <p>Yes. Include trade details in your request and we’ll line up partners who can appraise remotely or on-site.</p>
-            </div>
-          </article>
-      </div>
+    <section class="section section--cta" id="final-cta">
+      <h2>The Perfect Car You’re Thinking About Won’t Wait.</h2>
+      <p>Someone else is 10 minutes away from finding it. Don’t let them.</p>
+      <button class="btn btn-primary btn-large" data-scroll="#lead-form">YES, FIND MY PERFECT CAR NOW</button>
     </section>
   </main>
 
-    <aside class="floating-cta" data-floating-cta aria-hidden="true">
-      <div>
-        <p class="floating-cta__eyebrow">Need matches today?</p>
-        <p class="floating-cta__text">Share your wish list now and we’ll reply in under an hour.</p>
-      </div>
-      <button class="primary" type="button" data-floating-cta-btn>Start Request</button>
-    </aside>
-
-  <footer class="site-footer" id="contact">
+  <footer class="site-footer">
     <div>
-      <h3>Harbour City Car Leads</h3>
-      <p>Local intake team based in downtown Nanaimo. Office visits by appointment only.</p>
+      <h3>Buyer’s Ally Intake Team</h3>
+      <p>Remote-first advisors. Private appointments only. Consider us your stealth-market pit crew.</p>
     </div>
     <div class="footer-grid">
       <div>
         <h4>Contact</h4>
-        <p>Call / Text: <a href="tel:+12508001234">(250) 800-1234</a></p>
-        <p>Email: <a href="mailto:intake@harbourcitycars.ca">intake@harbourcitycars.ca</a></p>
+        <p><a href="mailto:ally@buyersally.com">ally@buyersally.com</a></p>
+        <p><a href="tel:+18885551010">1 (888) 555-1010</a></p>
       </div>
       <div>
-        <h4>Hours (PST)</h4>
-        <p>Mon–Fri: 8:00a - 7:00p</p>
-        <p>Sat: 9:00a - 4:00p</p>
+        <h4>Hours</h4>
+        <p>Mon–Sat · 7a – 10p</p>
+        <p>Sun · 9a – 5p (text only)</p>
       </div>
       <div>
-        <h4>Visit</h4>
-        <p>238 Franklyn St, Nanaimo BC</p>
-        <p>Parking available behind building</p>
+        <h4>HQ</h4>
+        <p>Private office · By appointment</p>
       </div>
     </div>
-    <p class="footer-note">© <span id="year"></span> Harbour City Car Leads. Proudly serving Nanaimo, BC and the Mid-Island corridor.</p>
+    <p class="footer-note">© <span id="year"></span> Buyer’s Ally. Build assets, not boring car pages.</p>
   </footer>
 
   <script src="script.js" defer></script>
