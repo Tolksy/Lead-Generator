@@ -11,11 +11,17 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="hero" id="top">
-    <nav class="nav">
-      <div class="logo">Harbour City Car Leads</div>
-      <button class="nav-cta" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'});">Get Matches</button>
-    </nav>
+    <header class="hero" id="top">
+      <nav class="nav" aria-label="Primary navigation">
+        <div class="logo">Harbour City Car Leads</div>
+        <ul class="nav-links">
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#inventory">Inventory</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <button class="nav-cta" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'});">Get Matches</button>
+      </nav>
     <div class="hero__content">
       <p class="eyebrow">Nanaimo · Ladysmith · Parksville</p>
       <h1>Drive the Island sooner with pre-qualified car leads.</h1>
@@ -59,15 +65,16 @@
         <div class="grid">
           <label>
             Full Name
-            <input type="text" name="name" placeholder="Jamie Fraser" required>
+              <input type="text" name="name" placeholder="Jamie Fraser" autocomplete="name" required>
           </label>
           <label>
             Email
-            <input type="email" name="email" placeholder="you@example.com" required>
+              <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
           </label>
           <label>
             Mobile Phone
-            <input type="tel" name="phone" placeholder="(250) 555-0199" required>
+              <input type="tel" name="phone" placeholder="(250) 555-0199" autocomplete="tel" inputmode="tel" data-phone-input required>
+              <span class="input-hint">We’ll text updates first, so share the best mobile number.</span>
           </label>
           <label>
             Preferred Contact Method
@@ -105,7 +112,8 @@
         </label>
         <label>
           Postal Code (for delivery + insurance estimates)
-          <input type="text" name="postal" maxlength="7" placeholder="V9R 5H5" pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$" required>
+            <input type="text" name="postal" maxlength="7" placeholder="V9R 5H5" autocomplete="postal-code" inputmode="text" data-postal-input pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$" required>
+            <span class="input-hint">Format: V9R 5H5 — we auto-capitalize for you.</span>
         </label>
         <div class="agreement">
           <input type="checkbox" id="consent" required>
@@ -251,25 +259,49 @@
         <h2>Questions from Nanaimo shoppers</h2>
       </header>
       <div class="faq-list">
-        <article>
-          <h4>Do you charge drivers?</h4>
-          <p>No. Partners sponsor the platform so it stays free for residents. We only get paid when you approve a connection.</p>
-        </article>
-        <article>
-          <h4>Will this hurt my credit?</h4>
-          <p>We never run credit. Once you choose a dealer or lender they’ll request consent for any checks.</p>
-        </article>
-        <article>
-          <h4>How fast can I get a vehicle?</h4>
-          <p>Most Nanaimo drivers receive initial matches within an hour and finalize paperwork within 48 hours, depending on inventory.</p>
-        </article>
-        <article>
-          <h4>Can you help with trades?</h4>
-          <p>Yes. Include trade details in your request and we’ll line up partners who can appraise remotely or on-site.</p>
-        </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Do you charge drivers?</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>No. Partners sponsor the platform so it stays free for residents. We only get paid when you approve a connection.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Will this hurt my credit?</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>We never run credit. Once you choose a dealer or lender they’ll request consent for any checks.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>How fast can I get a vehicle?</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Most Nanaimo drivers receive initial matches within an hour and finalize paperwork within 48 hours, depending on inventory.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Can you help with trades?</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Yes. Include trade details in your request and we’ll line up partners who can appraise remotely or on-site.</p>
+            </div>
+          </article>
       </div>
     </section>
   </main>
+
+    <aside class="floating-cta" data-floating-cta aria-hidden="true">
+      <div>
+        <p class="floating-cta__eyebrow">Need matches today?</p>
+        <p class="floating-cta__text">Share your wish list now and we’ll reply in under an hour.</p>
+      </div>
+      <button class="primary" type="button" data-floating-cta-btn>Start Request</button>
+    </aside>
 
   <footer class="site-footer" id="contact">
     <div>
